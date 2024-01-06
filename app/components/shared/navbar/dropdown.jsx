@@ -2,7 +2,7 @@ import { menuLinks } from "@/utils/menu-links";
 
 export default function DropDown() {
   return (
-    <main className="hidden">
+    <main className="absolute -mb-[100%] sm:w-full">
       <ul className="bg-[#FEFEFE] rounded-lg mt-1 py-2">
         {menuLinks.map((item, index) => (
           <li
