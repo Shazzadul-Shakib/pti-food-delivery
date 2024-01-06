@@ -1,6 +1,7 @@
 import { CiSearch } from "react-icons/ci";
 import { FaAngleDown } from "react-icons/fa6";
 import { GoPerson } from "react-icons/go";
+import DropDown from "./dropdown";
 
 export default function Navbar() {
   return (
@@ -19,10 +20,13 @@ export default function Navbar() {
           />
         </div>
         {/* Menu bar dropdown */}
-        <div className="flex items-center gap-3 bg-[#FEFEFE] p-2 rounded-lg">
-          <h1 className=" text-xs font-bold">Menu</h1>
-          <FaAngleDown className="text-[#F99F1C] text-xs" />
-        </div>
+        <section>
+          <div className="flex justify-between items-center gap-3 bg-[#FEFEFE] p-2 rounded-lg">
+            <h1 className=" text-xs font-bold">Menu</h1>
+            <FaAngleDown className="text-[#F99F1C] text-xs" />
+          </div>
+          <DropDown/>
+        </section>
       </div>
       <div className="hidden bg-[#FD6011] h-8 w-8 rounded-full sm:flex justify-center items-center text-white">
         <GoPerson className="text-xl" />
