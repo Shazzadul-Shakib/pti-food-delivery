@@ -3,13 +3,13 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
 import ModalBody from "../modals/modal";
 import Loader from "../shared/loader";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleDropdown } from "@/redux/slices/toggleSlice";
+import { useSelector } from "react-redux";
 import AddProducts from "../cards/add-product";
 import { useRef } from "react";
+import { useToggleModal } from "@/hooks/useToggleModal";
 
 export default function ProductsBody({ data, isLoading, isError, popular }) {
-  const dispatch = useDispatch();
+  const [isOpen, toggleModal] = useToggleModal();
   const scrollContainerRef = useRef(null);
 
   const handleScrollRight = () => {
@@ -23,7 +23,6 @@ export default function ProductsBody({ data, isLoading, isError, popular }) {
     }
   };
 
-  const { isOpen } = useSelector((state) => state.toggle);
   const newProduct = useSelector((state) => state.addProduct.newData);
   let newData = newProduct !== null ? [...data, newProduct] : data;
 
@@ -37,13 +36,19 @@ export default function ProductsBody({ data, isLoading, isError, popular }) {
         <h1 className="font-bold">{popular ? "Popular" : "Recommended"}</h1>
         <div className="flex items-center gap-4">
           <button
-            onClick={() => dispatch(toggleDropdown())}
+            onClick={() => toggleModal()}
             className=" hidden text-sm text-[#FC6011] md:block"
           >
             AddMore
           </button>
-          <IoIosArrowBack className="cursor-pointer" onClick={handleScrollLeft} />
-          <IoIosArrowForward className="cursor-pointer" onClick={handleScrollRight} />
+          <IoIosArrowBack
+            className="cursor-pointer"
+            onClick={handleScrollLeft}
+          />
+          <IoIosArrowForward
+            className="cursor-pointer"
+            onClick={handleScrollRight}
+          />
         </div>
       </section>
       {/* Cards */}
@@ -69,7 +74,7 @@ export default function ProductsBody({ data, isLoading, isError, popular }) {
       {isOpen && (
         <ModalBody
           props={
-            <AddProducts toggleModal={toggleDropdown} isLoading={isLoading} />
+            <AddProducts toggleModal={toggleModal} isLoading={isLoading} />
           }
         />
       )}
