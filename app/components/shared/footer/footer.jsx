@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <main className="px-4 py-10 bg-[#F99F1C] flex justify-center lg:p-10">
+    <main className="px-4 py-8 mt-10 bg-[#F99F1C] flex justify-center lg:py-6 lg:px-8 ">
       <section className=" w-full flex flex-col justify-center gap-10 lg:w-[67%] ">
         {/* Subscription bar */}
         <div className="w-full flex items-center justify-between bg-[#FFFFFF] px-2 py-1 rounded-2xl lg:w-[70%]">
