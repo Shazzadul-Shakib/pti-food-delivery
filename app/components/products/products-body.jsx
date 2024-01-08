@@ -24,7 +24,9 @@ export default function ProductsBody({ data, isLoading, isError, popular }) {
   };
 
   const newProduct = useSelector((state) => state.addProduct.newData);
-  let newData = newProduct !== null ? [...data, newProduct] : data;
+ let newData = newProduct ? [...(data || []), newProduct] : data || [];
+
+console.log(newData)
 
   if (isLoading) {
     return <ModalBody props={<Loader/>} />
