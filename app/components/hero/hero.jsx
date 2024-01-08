@@ -17,7 +17,7 @@ export default function Hero() {
           src="/Image1.png"
           width={400}
           height={400}
-          alt="Screenshots of the dashboard project showing desktop version"
+          alt="Hero image"
         />
       </div>
     </main>

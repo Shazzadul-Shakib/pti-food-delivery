@@ -50,7 +50,7 @@ export default function Footer() {
           objectFit="cover"
           width={300}
           height={300}
-          alt="Screenshots of the dashboard project showing desktop version"
+          alt="Footer Image"
           className="mr-10"
         />
       </section>
